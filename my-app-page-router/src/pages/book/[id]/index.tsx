@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import style from './[id].module.css';
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { fetchBook } from '@/lib/fetch-book';
+import { useRouter } from 'next/router';
 
 const mockData = {
   id: 1,
@@ -15,9 +16,18 @@ const mockData = {
     'https://shopping-phinf.pstatic.net/main_3888828/38888282618.20230913071643.jpg',
 };
 
-export const getServerSideProps = async (
-  context: GetServerSidePropsContext
-) => {
+export const getStaticPaths = () => {
+  return {
+    paths: [
+      { params: { id: '1' } }, // 파라미터의 값은 문자열이어야 함
+      { params: { id: '2' } },
+      { params: { id: '3' } },
+    ],
+    fallback: true, // 'false' | 'blocking' | 'true'✨
+  };
+};
+
+export const getStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params!.id;
 
   const book = await fetchBook(Number(id));
@@ -29,11 +39,16 @@ export const getServerSideProps = async (
   };
 };
 
+/* 
+ERROR!: getStaticPaths is required for dynamic SSG pages and is missing for '/book/[id]'.
+ */
 export default function Page({
   book,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   // const { id, title, subTitle, description, author, publisher, coverImgUrl } = mockData;
+  const router = useRouter();
 
+  if (router.isFallback) return '로딩 중입니다.'; // ✨
   if (!book) return '존재하지 않는 bookId입니다. 다시 시도하세요.';
 
   const { id, title, subTitle, description, author, publisher, coverImgUrl } =
