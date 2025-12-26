@@ -1,10 +1,32 @@
 import SearchableLayout from '@/components/searchable-layout';
 import style from './index.module.css';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import books from '@/mock/books.json';
 import BookItem from '@/components/book-item';
+import { InferGetServerSidePropsType } from 'next';
 
-export default function Home() {
+export const getServerSideProps = () => {
+  const data = 'hello, world';
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export default function Home({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  // getServerSideProps return value
+
+  // console.log('data: ', data); // 'hello, world'
+
+  useEffect(() => {
+    console.log(window);
+    console.log('data: ', data); // 'hello, world'
+  }, [data]);
+
   return (
     <div className={style.container}>
       <section>
