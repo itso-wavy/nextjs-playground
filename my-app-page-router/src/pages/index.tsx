@@ -2,11 +2,11 @@ import SearchableLayout from '@/components/searchable-layout';
 import style from './index.module.css';
 import { ReactNode } from 'react';
 import BookItem from '@/components/book-item';
-import { InferGetServerSidePropsType } from 'next';
+import { InferGetStaticPropsType } from 'next';
 import fetchBooks from '@/lib/fetch-books';
 import fetchRandomBooks from '@/lib/fetch-random-books';
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   // const data = 'hello, world';
 
   const [allBooks, recommendedBooks] = await Promise.all([
@@ -25,7 +25,7 @@ export const getServerSideProps = async () => {
 export default function Home({
   allBooks,
   recommendedBooks,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   // useEffect(() => {
   // console.log(window);
   // console.log('data: ', data); // 'hello, world'
