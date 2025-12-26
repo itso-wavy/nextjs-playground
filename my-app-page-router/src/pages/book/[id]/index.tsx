@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import style from './[id].module.css';
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+import { fetchBook } from '@/lib/fetch-book';
 
 const mockData = {
   id: 1,
@@ -13,9 +15,29 @@ const mockData = {
     'https://shopping-phinf.pstatic.net/main_3888828/38888282618.20230913071643.jpg',
 };
 
-export default function Page() {
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const id = context.params!.id;
+
+  const book = await fetchBook(Number(id));
+
+  return {
+    props: {
+      book,
+    },
+  };
+};
+
+export default function Page({
+  book,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  // const { id, title, subTitle, description, author, publisher, coverImgUrl } = mockData;
+
+  if (!book) return '존재하지 않는 bookId입니다. 다시 시도하세요.';
+
   const { id, title, subTitle, description, author, publisher, coverImgUrl } =
-    mockData;
+    book;
 
   return (
     <div className={style.container}>
