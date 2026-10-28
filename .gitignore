@@ -1,0 +1,12 @@
+
+# Local credentials and generated runtime state
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+.omx/
+node_modules/
+
