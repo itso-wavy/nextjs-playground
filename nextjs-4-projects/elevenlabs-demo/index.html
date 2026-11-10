@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An editorial voice AI landing page. A visual concept inspired by the supplied ElevenLabs design system.">
+  <title>ElevenLabs — A voice for every idea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navigation wrap">
+    <a class="brand" href="#" aria-label="ElevenLabs home"><span class="brand-mark" aria-hidden="true">Ⅱ</span>ElevenLabs</a>
+    <nav aria-label="Main navigation"><a href="#creative">Creative Platform</a><a href="#agents">Agents Platform</a><a href="#possibilities">Resources</a></nav>
+    <a class="button primary nav-cta" href="#creative">Explore the platform <span>↗</span></a>
+    <details class="mobile-menu"><summary aria-label="Open navigation">☰</summary><div><a href="#creative">Creative Platform</a><a href="#agents">Agents Platform</a><a href="#possibilities">Resources</a></div></details>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <a class="announcement" href="#creative"><span class="small-mark">Ⅱ</span> Meet the next generation of voice <span aria-hidden="true">↗</span></a>
+      <h1>Every idea deserves<br>a voice.</h1>
+      <p>The most human way to bring your words to life.<br>Create expressive audio. Build conversations that connect.</p>
+      <div class="hero-actions"><a class="button primary" href="#creative">Explore creative tools <span>↗</span></a><a class="button outline" href="#agents">Discover AI agents</a></div>
+      <div class="soundscape" aria-label="Pastel atmospheric sound illustration">
+        <div class="orb orb-mint"></div><div class="orb orb-peach"></div><div class="orb orb-lavender"></div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+        <div class="audio-preview"><div class="audio-top"><span class="voice-avatar">Ⅱ</span><div><strong>A little imagination. A whole new world.</strong><span>Aria · Warm, expressive narration</span></div><span class="preview-tag">VOICE PREVIEW</span></div><div class="audio-bottom"><span class="play" aria-hidden="true">▶</span><div class="waveform" aria-hidden="true"></div><span class="duration">0:24</span></div></div>
+        <div class="scene-caption"><span>Infinite expression. Unmistakably human.</span><span>Made with ElevenLabs</span></div>
+      </div>
+    </section>
+    <section class="trust wrap" aria-label="Built for creative work"><p>For the people bringing the next great story to life</p><div class="wordmarks"><span class="serif-logo">Storytel</span><span class="podcast-logo">◎ podimo</span><span class="book-logo">HarperCollins</span><span class="mubi-logo">●●● MUBI</span><span class="time-logo">TIME</span></div></section>
+    <section class="products wrap" id="creative"><div class="section-heading"><div><span class="eyebrow">ENDLESS POSSIBILITIES</span><h2>From the first word<br>to the final take.</h2></div><p>A studio for your imagination.<br>Everything you need to create with sound,<br>all in one place.</p></div>
+      <div class="product-grid">
+        <article class="product-card"><div class="product-art narration-art"><div class="mini-script"><div class="script-top"><span>Untitled story</span><span>···</span></div><p>Some stories don’t just<br>stay on the page.<br><span>They come to life.</span></p><div class="script-footer"><span>◉ &nbsp; Aria</span><span class="mini-pill">Generate speech ↗</span></div></div><div class="floating-audio"><span>▶</span><div class="waveform" aria-hidden="true"></div><span>0:12</span></div></div><div class="product-copy"><span class="eyebrow">TEXT TO SPEECH</span><h3>Words with a world of feeling.</h3><p>Turn any text into natural, nuanced speech.<br>Find the perfect voice for every story.</p><a class="text-link" href="#possibilities">Explore text to speech <span>↗</span></a></div></article>
+        <article class="product-card" id="agents"><div class="product-art agent-art"><div class="agent-orb"></div><div class="agent-dialog">“How can I make your day a little easier?”</div><div class="agent-state"><span></span> Here to listen.</div></div><div class="product-copy"><span class="eyebrow">CONVERSATIONAL AI</span><h3>Good conversations start here.</h3><p>Thoughtful AI agents that listen, understand,<br>and respond. Naturally.</p><a class="text-link" href="#possibilities">Meet the agents platform <span>↗</span></a></div></article>
+      </div>
+    </section>
+    <section class="possibilities wrap" id="possibilities"><div class="section-heading"><h2>Your voice.<br>A world of possibilities.</h2><p>Across languages, formats, and borders.<br>Make something that’s heard.</p></div><div class="benefits"><article><span class="line-icon">文 A</span><h3>Speak to the world</h3><p>Keep the emotion. Cross the language barrier. Let your story travel further.</p></article><article><span class="line-icon">≋</span><h3>Find your signature sound</h3><p>A cast of distinctive voices, from intimate storytelling to larger-than-life characters.</p></article><article><span class="line-icon">◷</span><h3>Stay in your creative flow</h3><p>From a spark of inspiration to studio-quality audio, with more room to experiment.</p></article></div></section>
+    <section class="closing wrap"><div class="closing-glow" aria-hidden="true"></div><span class="eyebrow">LET’S MAKE SOMETHING HUMAN</span><h2>The next great story<br>starts with you.</h2><a href="#creative" class="button primary">Find your voice <span>↗</span></a></section>
+  </main>
+  <footer class="wrap"><div class="footer-top"><a class="brand" href="#"><span class="brand-mark">Ⅱ</span>ElevenLabs</a><p>Technology with a human voice.</p><a href="#">Back to top ↑</a></div><div class="footer-bottom"><span>© 2026 ElevenLabs · Unofficial design study</span><span>Visual prototype — audio and AI features are not connected.</span></div></footer>
+  <script>document.querySelectorAll('.waveform').forEach((wave, group) => { for(let i=0;i<64;i++){const bar=document.createElement('i');bar.style.height=(5+Math.abs(Math.sin(i*1.9+group)*Math.cos(i*.31))*29)+'px';wave.appendChild(bar);} });</script>
+</body>
+</html>
